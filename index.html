@@ -85,23 +85,41 @@
             </div>
         </div>
         <script>
-            let expression = '';
+            let expression = ''
 
             function appendNumber(number) {
-                expression += number.toString();
-                updateDisplay();
+                expression += number.toString()
+                updateDisplay()
             }
 
             function appendOperator(operator) {
-                expression += operator;
-                updateDisplay();
+                expression += operator
+                updateDisplay()
             }
 
             function clearResult() {
-                expression = '';
-                updateDisplay();
+                expression = ''
+                updateDisplay()
             }
 
+            function calculate() {
+                try {
+                    expression = expression.replace('^', '**')
+                    const result = eval(expression)
+                    expression = result.toString()
+                    updateDisplay()
+                } catch (error) {
+                    expression = 'Error'
+                    updateDisplay()
+                }
+            }
+
+            function appendDecimal(decimal) {
+                if (!expression.includes(decimal)) {
+                    expression += decimal
+                    updateDisplay()
+                }
+            }
         </script>
     </body>
 </html>
