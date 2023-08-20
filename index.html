@@ -120,6 +120,26 @@
                     updateDisplay()
                 }
             }
+
+            function appendBracket(bracket) {
+                expression += bracket;
+                updateDisplay();
+            }
+
+            function appendConstant(constant) {
+                expression += constant;
+                updateDisplay();
+            }
+
+            function deleteLastCharacter() {
+                expression = expression.slice(0, -1);
+                updateDisplay();
+            }
+
+            function updateDisplay() {
+                document.querySelector('#result').value = expression;
+            }
+
         </script>
     </body>
 </html>
